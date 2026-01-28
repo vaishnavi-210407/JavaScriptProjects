@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bill Calculater</h1>
+    <h2 id="item1"></h2>
+    <h2 id="item2"></h2>
+    <h2 id="item3"></h2>
+    <h2 id="bill"></h2>
+
+    <script>
+        let item1 = Number(prompt("Enter 1st Item's Rate : "));
+        document.getElementById("item1").innerText = `Item 1 : ${item1}`;
+
+        let item2 = Number(prompt("Enter 2nd Item's Rate : "));
+        document.getElementById("item2").innerText = `Item 2 : ${item2}`;
+
+        let item3 = Number(prompt("Enter 3rd Item's Rate : "));
+        document.getElementById("item3").innerText = `Item 3 : ${item3}`;
+
+        let bill = item1 + item2 + item3;
+        document.getElementById("bill").innerText = `Bill : ${bill}`;
+    </script>
+</body>
+</html>

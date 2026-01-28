@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Salary Calculator</h1>
+    <h2 id="name"></h2>
+    <h2 id="salary"></h2>
+    <h2 id="HRA"></h2>
+    <h2 id="DA"></h2>
+    <h2 id="TA"></h2>
+    <h2 id="GS"></h2>
+
+    <script>
+        let salary = Number(prompt("Enter your Salary : "));
+        document.getElementById("salary").innerText = `Salary : ${salary}`;
+
+        let HRA = Number(prompt("Enter your HRA (%) : "));
+        document.getElementById("HRA").innerText  = `HRA : ${HRA} %`;
+
+        let DA = Number(prompt("Enter your DA (%) : "));
+        document.getElementById("DA").innerText = `DA : ${DA} %`;
+
+        let TA = Number(prompt("Enter your TA (%) : "));
+        document.getElementById("TA").innerText = `TA : ${TA} %`;
+
+        let GS = salary + (HRA * salary / 100) + (DA * salary / 100) + (TA * salary / 100) * salary / 100;
+        document.getElementById("GS").innerText = `Gross Salary : ${GS}`;
+    </script>
+
+</body>
+</html>

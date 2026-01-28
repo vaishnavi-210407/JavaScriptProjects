@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Student Marks System </h1>
+    <h2 id="name"></h2>
+    <h2 id="sub1"></h2>
+    <h2 id="sub2"></h2>
+    <h2 id="sub3"></h2>
+    <h2 id="sub4"></h2>
+    <h2 id="sub5"></h2>
+    <h2 id="total"></h2>
+    <h2 id="percentage"></h2>
+
+    <script>
+        let name = prompt("Enter Student's Name : ");
+        document.getElementById("name").innerText = `Name : ${name}`;
+
+        let sub1 = Number(prompt("Enter Subject 1 Makrs : "));
+        document.getElementById("sub1").innerText = `Subject 1 : ${sub1}`;
+
+        let sub2 = Number(prompt("Enter Subject 2 Makrs : "));
+        document.getElementById("sub2").innerText = `Subject 2 : ${sub2}`;
+
+        let sub3 = Number(prompt("Enter Subject 3 Makrs : "));
+        document.getElementById("sub3").innerText = `Subject 3 : ${sub3}`;
+
+        let sub4 = Number(prompt("Enter Subject 4 Makrs : "));
+        document.getElementById("sub4").innerText = `Subject 4 : ${sub4}`;
+
+        let sub5 = Number(prompt("Enter Subject 5 Makrs : "));
+        document.getElementById("sub5").innerText = `Subject 5 : ${sub5}`;
+
+        let total = sub1 + sub2 + sub3 + sub4 + sub5;
+        document.getElementById("total").innerText = `Total : ${total}`;
+
+        let percentage = (total * 100) / 500;
+        document.getElementById("percentage").innerText = `Percentage : ${percentage}`;
+    </script>
+</body>
+</html>

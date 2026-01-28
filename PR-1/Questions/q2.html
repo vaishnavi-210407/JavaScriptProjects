@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Simple Intrest Calculator</h1>
+    <h2 id = "principal"></h2>
+    <h2 id = "rate"></h2>
+    <h2 id = "time"></h2>
+    <h2 id = "intrest"></h2>
+    <h2 id = "amount"></h2>
+
+    <script>
+        let principal = Number(prompt("Enter your Principal Amount: "));
+        document.getElementById("principal").innerText = `Principal Amount : ${principal}`;
+
+        let rate = Number(prompt("Enter your Rate: "));
+        document.getElementById("rate").innerText = `Rate of Intrest : ${rate}`;
+
+        let time = Number(prompt("Enter Time : "));
+        document.getElementById("time").innerText = `Time : ${time}`;
+
+        let intrest = (principal * rate * time)/ 100;
+        document.getElementById("intrest").innerText = `Intrest : ${intrest}`;
+
+        let amount= (principal * intrest);
+        document.getElementById("amount").innerText = `Total Amount : ${amount}`;
+    </script>
+
+</body>
+</html>

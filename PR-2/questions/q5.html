@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factor</title>
+</head>
+<body>
+    
+    <h1>Factor</h1>
+    <h2 id = "n"></h2>
+
+    <script>
+        let n = Number(prompt("Enter any number : "));
+        document.getElementById("n").innerText = `n = ${n}`;
+
+        for(let i = 1; i <= n; i++) {
+            if(n % i === 0) {
+                document.write(i + "<br>");
+            }
+        }
+    </script>
+
+</body>
+</html>
