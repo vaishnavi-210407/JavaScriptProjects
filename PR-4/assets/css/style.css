@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans 24pt';
+}
+
+.product-card {
+    transition: all 0.5s linear;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.active {
+    border: 3px solid black;
+}
+
+.star i {
+    color: gold;
+}
+
+.strike {
+    color: grey;
+}
