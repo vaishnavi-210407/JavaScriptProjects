@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quiz UI</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/fonts/DM-fonts/stylesheet.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quiz UI</title>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="screen start active" id="startScreen">
+    <h2>Quizze Box</h2>
+    <input type="text" id="username" placeholder="Enter your name">
+    <button onclick="startQuiz()">Start</button>
+  </div>
+
+  <div class="screen quiz" id="quizScreen">
+    <div class="question" id="question"></div>
+    <div id="options"></div>
+    <div class="timer">Time: <span id="time">30</span>s</div>
+  </div>
+
+  <div class="screen score" id="scoreScreen">
+    <h1 id="finalScore"></h1>
+    <button onclick="restart()">Play Again</button>
+  </div>
+
+</div>
+
+</body>
+</html>
+
+
+<script src="./assets/js/index.js"></script>
+<script src="./assets/js/bootstrap.bundle.js"></script>
+
+</body>
+</html>
