@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.logo img {
+    width: 120px;
+}
+
+.navbar .nav-link {
+    color: black;
+    font-weight: 500;
+}
+
+.navbar .nav-link:hover {
+    cursor: pointer;
+    color: red;
+}
