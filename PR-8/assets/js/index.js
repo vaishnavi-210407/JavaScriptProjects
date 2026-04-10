@@ -15,38 +15,27 @@ function displayProducts() {
   products.forEach((item, index) => {
 
     if (!item) return;
-
     if (!item.name.toLowerCase().includes(searchValue)) return;
 
-    found = true; 
+    found = true;
 
     productDiv.innerHTML += `
-      <div class="col-md-4 mb-3">
-        <div class="card shadow">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-lg border-0" style="border-radius:15px; overflow:hidden;">
+          
           <img src="${item.url}" class="card-img-top"
-               onerror="this.src='https://via.placeholder.com/150'">
-          <div class="card-body">
-            <h5>${item.name}</h5>
-            <p>₹ ${item.price}</p>
+            style="height:200px; object-fit:cover;"
+            onerror="this.src='https://via.placeholder.com/150'">
 
-            <div class="mt-2">
+          <div class="card-body text-center">
+            <h5 class="fw-bold">${item.name}</h5>
+            <p class="text-success fw-bold fs-5">₹ ${item.price}</p>
 
-  <button class="btn btn-success me-2"
-    onclick="addToCart(${index})">
-     Add to Cart
-  </button>
-
-  <button class="btn btn-warning me-2"
-    onclick="editProduct(${index})">
-     Edit
-  </button>
-
-  <button class="btn btn-danger"
-    onclick="deleteProduct(${index})">
-      Delete
-  </button>
-
-</div>
+            <div class="d-flex justify-content-center gap-2">
+              <button class="btn btn-success btn-sm" onclick="addToCart(${index})">🛒</button>
+              <button class="btn btn-warning btn-sm" onclick="editProduct(${index})">✏</button>
+              <button class="btn btn-danger btn-sm" onclick="deleteProduct(${index})">🗑</button>
+            </div>
 
           </div>
         </div>
@@ -62,63 +51,72 @@ function displayProducts() {
 }
 
 function displayCart() {
+
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   let cartDiv = document.getElementById("cart");
-  if(!cartDiv) return;
+  if (!cartDiv) return;
 
   cartDiv.innerHTML = "";
 
   cart.forEach((item, index) => {
-     if (!item) return;
 
-     if (!item.qty) item.qty = 1;  
+    if (!item) return;
+    if (!item.qty) item.qty = 1;
 
     cartDiv.innerHTML += `
-      <div class="col-md-4 mb-3">
-        <div class="card shadow">
-
+      <div class="col-md-4">
+        <div class="card shadow-lg border-0" style="border-radius:15px;">
+          
           <img src="${item.url}" class="card-img-top"
-               onerror="this.src='https://via.placeholder.com/150'">
+            style="height:200px; object-fit:cover;"
+            onerror="this.src='https://via.placeholder.com/150'">
 
-          <div class="card-body">
+          <div class="card-body text-center">
             <h5>${item.name}</h5>
-            <p class="fw-bold text-success">₹ ${item.price}</p>
+            <p class="text-success fw-bold">₹ ${item.price}</p>
 
-          <div class="d-flex align-items-center mt-2">  
+            <div class="d-flex justify-content-center align-items-center gap-2">
 
-            <button class="btn btn-sm btn-danger"
-              onclick="decreaseQty(${index})">
-                -
-            </button>
+              <button class="btn btn-danger btn-sm"
+                onclick="decreaseQty(${index})">-</button>
 
-            <span class="mx-3 fw-bold">${item.qty}</span>
+              <span class="fw-bold fs-5">${item.qty}</span>
 
-            <button class="btn btn-sm btn-success"
-            onclick="increaseQty(${index})">
-              +
-            </button>
+              <button class="btn btn-success btn-sm"
+                onclick="increaseQty(${index})">+</button>
 
-  </div>
+            </div>
 
-</div>
-
+          </div>
         </div>
       </div>
     `;
   });
+
+  let total = cart.reduce((sum, item) => {
+    return sum + (item.price * item.qty);
+  }, 0);
+
+  if (cart.length > 0) {
+    cartDiv.innerHTML += `
+      <div class="col-12 text-end mt-4">
+        <h4>Total: ₹ ${total}</h4>
+      </div>
+    `;
+  }
 }
 
 function addToCart(index) {
-  let products = JSON.parse(localStorage.getItem("product")) || [];
 
+  let products = JSON.parse(localStorage.getItem("product")) || [];
   let product = products[index];
 
-  if (!product) return; // 🔥 FIX
+  if (!product) return;
 
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  let existing = cart.find(item => item && item.name === product.name);
+  let existing = cart.find(item => item.name === product.name);
 
   if (existing) {
     existing.qty += 1;
@@ -150,9 +148,8 @@ function editProduct(index) {
 }
 
 function increaseQty(index) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  if (!cart[index].qty) cart[index].qty = 1;
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   cart[index].qty += 1;
 
@@ -162,14 +159,13 @@ function increaseQty(index) {
 }
 
 function decreaseQty(index) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  if (!cart[index].qty) cart[index].qty = 1;
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   cart[index].qty -= 1;
 
   if (cart[index].qty <= 0) {
-    cart.splice(index, 1);
+    cart.splice(index, 1); // 🔥 auto remove
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -198,9 +194,9 @@ if (form) {
     }
   }
 
-  form.addEventListener("submit", function(event) {
+  form.addEventListener("submit", function (e) {
 
-    event.preventDefault();
+    e.preventDefault();
 
     let name = document.getElementById("name").value;
     let url = document.getElementById("url").value;
@@ -228,9 +224,7 @@ if (form) {
 let searchBox = document.getElementById("search");
 
 if (searchBox) {
-  searchBox.addEventListener("input", function () {
-    displayProducts();
-  });
+  searchBox.addEventListener("input", displayProducts);
 }
 
 displayProducts();

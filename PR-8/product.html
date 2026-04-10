@@ -11,23 +11,20 @@
 
 <body class="bg-light">
 
-  <nav class="navbar navbar-light bg-white shadow px-4">
+ <nav class="navbar navbar-dark bg-dark px-4 shadow">
+  <h4 class="text-white">🛍 My Store</h4>
 
-    <form class="d-flex w-50">
-      <input class="form-control me-2" type="search" placeholder="Search product..." id="search">
-    </form>
+  <input class="form-control w-25" type="search" placeholder="Search..." id="search">
 
-    <div>
-      <a href="index.html" class="btn btn-primary me-2 ps-4">➕ Add New</a>
-      <button class="btn btn-success" onclick="goToCart()">🛒 Cart</button>
-    </div>
-
-  </nav>
-
-  <div class="container mt-4">
-    <div class="row" id="product"></div>
+  <div>
+    <a href="index.html" class="btn btn-primary me-2">➕ Add</a>
+    <button class="btn btn-success" onclick="goToCart()">🛒 Cart</button>
   </div>
+</nav>
 
+<div class="container mt-4">
+  <div class="row g-4" id="product"></div>
+</div>
 
   <script src="./assets/js/index.js"></script>
   <script src="./assets/js/bootstrap.bundle.js"></script>

@@ -1,0 +1,91 @@
+body{
+margin:0;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background:#f5f6fa;
+}
+
+
+.sidebar{
+background:linear-gradient(180deg,#4e73df,#224abe);
+}
+
+.breedList{
+display:flex;
+flex-direction:column;
+gap:8px;
+}
+
+.breedList p{
+padding:10px 15px;
+border-radius:8px;
+background:rgba(255,255,255,0.15);
+color:white;
+margin:0;
+transition:0.3s;
+text-transform:capitalize;
+}
+
+.breedList p:hover{
+background:#ffc107;
+color:black;
+cursor:pointer;
+transform:translateX(5px);
+}
+
+.breedList p.active{
+background:white;
+color:black;
+font-weight:bold;
+}
+
+.galleryTitle{
+font-weight:600;
+border-bottom:2px solid #ddd;
+padding-bottom:10px;
+margin-bottom:20px;
+}
+
+.rightSight{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+gap:20px;
+}
+
+
+.rightSight h2,
+.rightSight h3{
+grid-column:1/-1;
+text-transform:capitalize;
+font-weight:600;
+}
+
+
+img{
+width:100%;
+height:200px;
+border-radius:12px;
+object-fit:cover;
+transition:0.3s;
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+img:hover{
+transform:scale(1.08);
+cursor:pointer;
+box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+
+
+.loader{
+grid-column:1/-1;
+}
+
+
+::-webkit-scrollbar{
+width:6px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#bbb;
+border-radius:10px;
+}
